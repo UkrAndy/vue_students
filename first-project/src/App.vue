@@ -24,7 +24,8 @@ export default {
           imgSrc:
             'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
           title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 5999,
+          price: 2000,
+          sales: true,
         },
         {
           id: 2,
@@ -32,13 +33,23 @@ export default {
             'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
           title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
           price: 5999,
+          sales: false,
         },
         {
           id: 3,
           imgSrc:
             'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
           title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 5999,
+          price: 1000,
+          sales: true,
+        },
+        {
+          id: 4,
+          imgSrc:
+            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
+          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
+          price: 1000,
+          sales: false,
         },
       ],
     }

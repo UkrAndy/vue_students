@@ -7,23 +7,8 @@
       :img-src="item.imgSrc"
       :title="item.title"
       :price="item.price"
+      :sales="item.sales"
     />
-
-    <!-- <product-card
-      :img-src="productListData[0].imgSrc"
-      :title="productListData[0].title"
-      :price="productListData[0].price"
-    />
-    <product-card
-      :img-src="productListData[1].imgSrc"
-      :title="productListData[1].title"
-      :price="productListData[1].price"
-    />
-    <product-card
-      :img-src="productListData[2].imgSrc"
-      :title="productListData[2].title"
-      :price="productListData[2].price"
-    /> -->
   </div>
 </template>
 

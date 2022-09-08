@@ -1,7 +1,8 @@
 <template>
   <div class="card-container">
     <div class="card-header">
-      <button>Ok</button>
+      <span v-show="sales" class="card-sales">Акція</span>
+      <button>+</button>
     </div>
     <div class="card-image">
       <img :src="imgSrc" />
@@ -33,6 +34,10 @@ export default {
       type: Number,
       default: 0,
     },
+    sales: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -51,6 +56,17 @@ export default {
   border-radius: 10px;
   margin: 20px;
   padding: 10px;
+}
+.card-header {
+  text-align: right;
+}
+
+.card-sales {
+  background-color: greenyellow;
+  color: white;
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 8px;
 }
 .card-image {
   padding: 10px;
