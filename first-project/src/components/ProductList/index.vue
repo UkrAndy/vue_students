@@ -1,21 +1,28 @@
 <template>
-  <div class="list-container">
+  <div>
+    <div>Корзина: {{ addedProductsNumber }}</div>
+    <div>Кількість кліків: {{ clickNum }}</div>
+    <div>Total: {{ totalSum }}</div>
     <!-- 3.Використовуємо компонент -->
-    <product-card
-      v-for="item in productListData"
-      :key="item.id"
-      :img-src="item.imgSrc"
-      :title="item.title"
-      :price="item.price"
-      :sales="item.sales"
-    />
+    <div class="list-container">
+      <product-card
+        v-for="item in productListData"
+        :key="item.id"
+        :img-src="item.imgSrc"
+        :title="item.title"
+        :price="item.price"
+        :sales="item.sales"
+        @on-add-to-cart="onAdd"
+        @mouse-down-container="clickNum++"
+        @open-product-detail="onProductDetail(item.id)"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 //1. Іморт зовнішнього компонента
 import ProductCard from './ProductCard.vue'
-
 export default {
   name: 'ProductList',
 
@@ -28,6 +35,26 @@ export default {
     productListData: {
       type: Array,
       default: () => [],
+    },
+  },
+
+  data() {
+    return {
+      addedProductsNumber: 0,
+      clickNum: 0,
+      totalSum: 0,
+    }
+  },
+
+  methods: {
+    onAdd(priceValue) {
+      this.totalSum += priceValue
+    },
+    onProductDetail(itemId) {
+      this.$router.push({
+        name: 'products',
+        params: { id: itemId },
+      })
     },
   },
 }

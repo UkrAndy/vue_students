@@ -1,8 +1,14 @@
 <template>
-  <div class="card-container">
+  <div
+    class="card-container"
+    @mousedown="$emit('mouse-down-container')"
+    @click="$emit('open-product-detail')"
+  >
     <div class="card-header">
       <span v-show="sales" class="card-sales">Акція</span>
-      <button>+</button>
+      <button @click.stop="$emit('on-add-to-cart', price)" @mousedown.stop="">
+        +
+      </button>
     </div>
     <div class="card-image">
       <img :src="imgSrc" />
@@ -45,6 +51,12 @@ export default {
       return `${this.price} грн.`
     },
   },
+
+  methods: {
+    onAddToCart() {
+      this.$emit('on-add-to-cart')
+    },
+  },
 }
 </script>
 
@@ -56,6 +68,7 @@ export default {
   border-radius: 10px;
   margin: 20px;
   padding: 10px;
+  cursor: pointer;
 }
 .card-header {
   text-align: right;
