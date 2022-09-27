@@ -5,6 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './pages/Home'
 import Products from '@/pages/Products'
 import About from './pages/About'
+import EditProduct from './components/EditProduct'
 
 // 2. Define some routes
 // Each route should map to a component.
@@ -16,6 +17,8 @@ const routes = [
     name: 'home',
   },
   { path: '/products-list/:id?', component: Products, name: 'products' },
+  { path: '/edit/:id?', component: EditProduct, name: 'edit' },
+
   { path: '/about', component: About, name: 'about' },
 ]
 

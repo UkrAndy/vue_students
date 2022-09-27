@@ -7,6 +7,7 @@
       <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
       <router-link to="/">Go to Home</router-link>
       <router-link to="/products-list">Go to Products</router-link>
+      <router-link to="/edit">Add new product</router-link>
       <router-link to="/about">Go to About</router-link>
     </p>
     <!-- route outlet -->
@@ -21,42 +22,7 @@ export default {
   components: {},
 
   data() {
-    return {
-      listData: [
-        {
-          id: 1,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 2000,
-          sales: true,
-        },
-        {
-          id: 2,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 5999,
-          sales: false,
-        },
-        {
-          id: 3,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 1000,
-          sales: true,
-        },
-        {
-          id: 4,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 1000,
-          sales: false,
-        },
-      ],
-    }
+    return {}
   },
 }
 </script>

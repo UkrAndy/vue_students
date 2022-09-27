@@ -1,6 +1,10 @@
 <template>
   <div>
     <h1>Products</h1>
+    <h2>{{ getCount }}</h2>
+    <div>
+      <button @click="onClick">Add 1 to count</button>
+    </div>
     <product-card
       v-if="receivedProductId"
       :img-src="currentProduct.imgSrc"
@@ -8,13 +12,16 @@
       :price="currentProduct.price"
       :sales="currentProduct.sales"
     />
-    <product-list v-else :product-list-data="listData" />
+    <product-list v-else :product-list-data="getProductList" />
   </div>
 </template>
 
 <script>
 import ProductList from '@/components/ProductList'
 import ProductCard from '@/components/ProductList/ProductCard'
+
+//1.Імпортуємо mapGetters
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Products',
 
@@ -24,53 +31,22 @@ export default {
   },
 
   computed: {
+    //2.Імпорт геттерів зі стора
+    ...mapGetters(['getCount', 'getProductList', 'getProductById']),
     receivedProductId() {
       return this.$route.params.id
     },
     currentProduct() {
-      return this.receivedProductId
-        ? this.listData.find((item) => item.id == this.receivedProductId)
-        : {}
+      return this.getProductById(this.receivedProductId)
     },
   },
 
-  data() {
-    return {
-      listData: [
-        {
-          id: 1,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 2000,
-          sales: true,
-        },
-        {
-          id: 2,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 5999,
-          sales: false,
-        },
-        {
-          id: 3,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 1000,
-          sales: true,
-        },
-        {
-          id: 4,
-          imgSrc:
-            'https://content1.rozetka.com.ua/goods/images/preview/231359985.png',
-          title: 'Смарт-годинник Amazfit GTR 3 Pro Brown Leather',
-          price: 1000,
-          sales: false,
-        },
-      ],
-    }
+  methods: {
+    //Імпортуємо actions з стора
+    ...mapActions(['addValueCount']),
+    onClick() {
+      this.addValueCount(1)
+    },
   },
 }
 </script>

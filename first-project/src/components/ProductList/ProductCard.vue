@@ -6,6 +6,8 @@
   >
     <div class="card-header">
       <span v-show="sales" class="card-sales">Акція</span>
+      <button @click.stop="$emit('edit-product')">Edit</button>
+      <button @click.stop="$emit('delete-item')">Delete</button>
       <button @click.stop="$emit('on-add-to-cart', price)" @mousedown.stop="">
         +
       </button>

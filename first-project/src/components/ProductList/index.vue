@@ -15,12 +15,15 @@
         @on-add-to-cart="onAdd"
         @mouse-down-container="clickNum++"
         @open-product-detail="onProductDetail(item.id)"
+        @delete-item="onDelete(item.id)"
+        @edit-product="onProductEdit(item.id)"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 //1. Іморт зовнішнього компонента
 import ProductCard from './ProductCard.vue'
 export default {
@@ -47,12 +50,22 @@ export default {
   },
 
   methods: {
+    ...mapActions(['deleteItemAction']),
     onAdd(priceValue) {
       this.totalSum += priceValue
     },
     onProductDetail(itemId) {
       this.$router.push({
         name: 'products',
+        params: { id: itemId },
+      })
+    },
+    onDelete(itemId) {
+      this.deleteItemAction(itemId)
+    },
+    onProductEdit(itemId) {
+      this.$router.push({
+        name: 'edit',
         params: { id: itemId },
       })
     },

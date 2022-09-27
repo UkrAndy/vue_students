@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 //1.Імпортуємо файл налаштувань роутера
 import router from './router'
+//Імпортуємо файл налаштувань стора
+import store from './store'
 
 //2.Додаємо роутер дододатку
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
