@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
+// import LocalStorageData from './helpers/LocalStorageData'
 
 // Create a new store instance.
 const store = createStore({
