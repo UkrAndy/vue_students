@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-container"
+    class="card-container card m-8"
     @mousedown="$emit('mouse-down-container')"
     @click="$emit('open-product-detail')"
   >
@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .card-container {
   width: 200px;
   height: 300px;
